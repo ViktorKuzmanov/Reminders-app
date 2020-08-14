@@ -87,10 +87,10 @@ class NavBar extends React.Component {
               id="uncontrolled-tab-example"
             >
               <Tab eventKey="register" title="Register">
-                RegisterButton
+                <a href="/auth/google">Sign Up with Google</a>
               </Tab>
               <Tab eventKey="singIn" title="Sing in">
-                LoginButton
+                <a href="/auth/google">Sign In with Google</a>
               </Tab>
             </Tabs>
           </Modal.Body>
