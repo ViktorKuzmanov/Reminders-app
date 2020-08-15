@@ -1,7 +1,10 @@
 const path = require("path");
-const mongoose = require("mongoose");
 const express = require("express");
-const keys = require("../config/keys");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const passport = require("passport");
+const mongoose = require("mongoose");
+const passportSetup = require("./config/passport-setup");
+const keys = require("./config/keys");
 const app = express(); // create express app
 
 mongoose.connect(
