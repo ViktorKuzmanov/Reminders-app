@@ -1,11 +1,13 @@
 const path = require("path");
+const keys = require("./config/keys");
 const express = require("express");
+const mongoose = require("mongoose");
+const authRoutes = require("./routes/auth-routes");
+const app = express(); // create express app
+
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const passport = require("passport");
-const mongoose = require("mongoose");
 const passportSetup = require("./config/passport-setup");
-const keys = require("./config/keys");
-const app = express(); // create express app
 
 mongoose.connect(
   `mongodb+srv://admin-viktor:${keys.mongoDB.adminPassword}@clusterforpetprojects.7esmr.mongodb.net/usersRemindersApp?retryWrites=true&w=majority`,
@@ -15,6 +17,8 @@ mongoose.connect(
 // add middlewares
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
+
+app.use("/auth", authRoutes);
 
 // start express server on port 5000
 app.listen(5000, () => {
