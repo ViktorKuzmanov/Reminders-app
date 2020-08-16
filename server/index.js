@@ -3,6 +3,8 @@ const keys = require("./config/keys");
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth-routes");
+const passport = require("passport");
+const cookieSession = require("cookie-session");
 const app = express(); // create express app
 
 const passportSetup = require("./config/passport-setup");
@@ -15,6 +17,17 @@ mongoose.connect(
 // add middlewares
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
+
+app.use(
+  cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [keys.session.cookieKey],
+  })
+);
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/auth", authRoutes);
 
