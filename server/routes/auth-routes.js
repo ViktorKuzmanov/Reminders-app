@@ -14,7 +14,7 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/home" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.send("you are on /redirect route");
+    res.redirect("/?isLoggedIn=true");
   }
 );
 
