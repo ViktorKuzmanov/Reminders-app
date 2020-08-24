@@ -56,12 +56,14 @@ class NavBar extends React.Component {
             title="Account"
             id="dropdown-menu-align-right"
           >
-            <Button variant="light" name="singIn" onClick={this.handleClick}>
-              Sign in
-            </Button>{" "}
-            <Button variant="dark" name="register" onClick={this.handleClick}>
-              Join
-            </Button>{" "}
+            <div className="container">
+              <Button variant="light" name="singIn" onClick={this.handleClick}>
+                Sign in
+              </Button>{" "}
+              <Button variant="dark" name="register" onClick={this.handleClick}>
+                Join
+              </Button>{" "}
+            </div>
             <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
             <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
             <Dropdown.Divider />
