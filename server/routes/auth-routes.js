@@ -18,12 +18,5 @@ router.get(
   }
 );
 
-router.get("/isLoggedIn", (req, res) => {
-  if (req.isAuthenticated()) {
-    res.send("true");
-  } else {
-    res.send("false");
-  }
-});
 
 module.exports = router;
