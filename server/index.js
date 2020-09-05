@@ -35,6 +35,10 @@ app.get("/home", (req, res) => {
   res.send("this is home");
 });
 
+app.get("/isLoggedIn", (req, res) => {
+  res.json({ isLoggedIn: req.isAuthenticated() });
+});
+
 // start express server on port 5000
 app.listen(5000, () => {
   console.log("server started on port 5000");
