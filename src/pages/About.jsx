@@ -1,14 +1,7 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import Navbar from "../components/NavBar";
-import { UserContext } from "../context/UserContext";
 
 const About = () => {
-  const [isLoggedIn, setIsLoggedIn] = useContext(UserContext);
-
-  useEffect(() => {
-    console.log("isLoggedIn = " + isLoggedIn);
-  }, []);
-
   return (
     <div>
       <Navbar />
