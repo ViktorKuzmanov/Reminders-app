@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 import { Dropdown, DropdownButton, Modal } from "react-bootstrap";
@@ -20,6 +20,7 @@ const NavBar = (props) => {
     setShowModal(false);
   };
 
+
   return (
     <div>
       <Navbar bg="light" variant="light" expand="md">
@@ -40,12 +41,18 @@ const NavBar = (props) => {
           id="dropdown-menu-align-right"
         >
           <div className="container">
-            <Button variant="light" name="singIn" onClick={handleClick}>
-              Sign in
-            </Button>{" "}
-            <Button variant="dark" name="register" onClick={handleClick}>
-              Join
-            </Button>{" "}
+            {isLoggedIn ? (
+              <h1>Logout</h1>
+            ) : (
+              <div>
+                <Button variant="light" name="singIn" onClick={handleClick}>
+                  Sign in
+                </Button>{" "}
+                <Button variant="dark" name="register" onClick={handleClick}>
+                  Join
+                </Button>{" "}
+              </div>
+            )}
           </div>
           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
           <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
