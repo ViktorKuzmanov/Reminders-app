@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 import { Dropdown, DropdownButton, Modal } from "react-bootstrap";
 import { Tab, Tabs } from "react-bootstrap";
+import { UserContext } from "../context/UserContext";
 
 const NavBar = (props) => {
   const [activetab, setActivetab] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useContext(UserContext);
 
   const handleClick = (event) => {
     const { name } = event.target;
