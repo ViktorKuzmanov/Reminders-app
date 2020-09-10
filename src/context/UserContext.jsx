@@ -8,8 +8,9 @@ export const UserProvider = (props) => {
 
   useEffect(() => {
     console.log("useEffect in UserContext called");
-    axios.get("http://localhost:5000/isLoggedIn").then((res) => {
+    axios.get("http://localhost:5000/auth/isLoggedIn").then((res) => {
       const isLoggedInFromServer = res.data.isLoggedIn;
+      console.log("isLoggedInFromServer = " + isLoggedInFromServer);
       setIsLoggedIn(isLoggedInFromServer);
     });
   }, []);

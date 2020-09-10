@@ -18,5 +18,9 @@ router.get(
   }
 );
 
+router.get("/isLoggedIn", (req, res) => {
+  res.json({ isLoggedIn: req.isAuthenticated() });
+});
+
 
 module.exports = router;
