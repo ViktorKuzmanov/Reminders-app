@@ -18,9 +18,12 @@ router.get(
   }
 );
 
+router.get("/logout", (req, res) => {
+  req.logout();
+});
+
 router.get("/isLoggedIn", (req, res) => {
   res.json({ isLoggedIn: req.isAuthenticated() });
 });
-
 
 module.exports = router;
