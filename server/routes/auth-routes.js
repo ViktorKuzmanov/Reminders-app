@@ -20,9 +20,11 @@ router.get(
 
 router.get("/logout", (req, res) => {
   req.logout();
+  res.redirect("/auth/isLoggedIn");
 });
 
 router.get("/isLoggedIn", (req, res) => {
+  console.log("/auth/isLoggedIn route is triggered");
   res.json({ isLoggedIn: req.isAuthenticated() });
 });
 
