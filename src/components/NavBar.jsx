@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 import { Dropdown, DropdownButton, Modal } from "react-bootstrap";
@@ -20,6 +21,12 @@ const NavBar = (props) => {
     setShowModal(false);
   };
 
+  // TODO: prati logout get request do server / posle primit go res tuka / update context / redirect to home
+  const handleLogout = () => {
+    axios.get("/auth/logout").then((res) => {
+      console.log("isLoggedIn u navbar" + res.data.isLoggedIn);
+    });
+  };
 
   return (
     <div>
@@ -42,7 +49,7 @@ const NavBar = (props) => {
         >
           <div className="container">
             {isLoggedIn ? (
-              <h1>Logout</h1>
+              <button onClick={handleLogout}>Logout</button>
             ) : (
               <div>
                 <Button variant="light" name="singIn" onClick={handleClick}>
