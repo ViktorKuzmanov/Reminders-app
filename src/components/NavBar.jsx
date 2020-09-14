@@ -49,7 +49,10 @@ const NavBar = (props) => {
         >
           <div className="container">
             {isLoggedIn ? (
-              <button onClick={handleLogout}>Logout</button>
+              <div>
+                <button onClick={handleLogout}>Logout</button>
+                <Dropdown.Item eventKey="1">Reminders</Dropdown.Item>
+              </div>
             ) : (
               <div>
                 <Button variant="light" name="singIn" onClick={handleClick}>
@@ -61,10 +64,6 @@ const NavBar = (props) => {
               </div>
             )}
           </div>
-          <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-          <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
         </DropdownButton>
       </Navbar>
       <Modal
