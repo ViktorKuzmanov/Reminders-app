@@ -34,7 +34,7 @@ const NavBar = (props) => {
         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
         <Nav className="mr-auto">
           <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <Link to="/#about">About</Link>
         </Nav>
         {props.location.pathname === "/" && (
           <Form inline>
