@@ -24,7 +24,6 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/isLoggedIn", (req, res) => {
-  console.log("/auth/isLoggedIn route is triggered");
   res.json({ isLoggedIn: req.isAuthenticated() });
 });
 
