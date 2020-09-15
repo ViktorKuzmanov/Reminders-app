@@ -34,7 +34,7 @@ const NavBar = (props) => {
         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
         <Nav className="mr-auto">
           <Link to="/">Home</Link>
-          <Link to="/#about">About</Link>
+          <Link to="/about">About</Link>
         </Nav>
         {props.location.pathname === "/" && (
           <Form inline>
@@ -51,7 +51,7 @@ const NavBar = (props) => {
             {isLoggedIn ? (
               <div>
                 <button onClick={handleLogout}>Logout</button>
-                <Dropdown.Item eventKey="1">Reminders</Dropdown.Item>
+                <Link to="/reminders">Reminders</Link>
               </div>
             ) : (
               <div>
