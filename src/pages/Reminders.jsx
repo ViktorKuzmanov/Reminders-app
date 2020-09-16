@@ -9,6 +9,12 @@ const Reminders = () => {
   const handleClose = () => {
     setShow(false);
   };
+
+  const handleSaveReminder = () => {
+    setShow(false);
+    console.log("reminder text = " + reminderText);
+  };
+
   const handleShow = () => setShow(true);
 
   const [reminderText, setReminderText] = useState("");
@@ -40,8 +46,8 @@ const Reminders = () => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button variant="primary" onClick={handleSaveReminder}>
+            Save Reminder
           </Button>
         </Modal.Footer>
       </Modal>
