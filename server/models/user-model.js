@@ -6,7 +6,6 @@ const userSchema = new Schema({
   email: String,
   googleId: String,
   reminders: [String],
-  // TODO: tuka add reminders
 });
 
 const User = mongoose.model("User", userSchema);
