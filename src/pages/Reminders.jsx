@@ -14,7 +14,7 @@ const Reminders = () => {
   const [reminderText, setReminderText] = useState("");
 
   const reminderTextChanged = (e) => {
-    console.log(e.target.value);
+    setReminderText(e.target.value);
   };
 
   return (
