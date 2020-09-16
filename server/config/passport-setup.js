@@ -33,6 +33,7 @@ passport.use(
           new User({
             email: profile._json.email,
             googleId: profile.id,
+            reminders: [],
           })
             .save()
             .then((newUser) => {
