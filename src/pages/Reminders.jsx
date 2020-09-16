@@ -5,8 +5,17 @@ import { useState } from "react";
 
 const Reminders = () => {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
   const handleShow = () => setShow(true);
+
+  const [reminderText, setReminderText] = useState("");
+
+  const reminderTextChanged = (e) => {
+    console.log(e.target.value);
+  };
 
   return (
     <div>
@@ -21,7 +30,11 @@ const Reminders = () => {
           <Modal.Title>Add reminder</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <input type="text" placeholder="reminder text" />
+          <input
+            type="text"
+            placeholder="reminder text"
+            onChange={reminderTextChanged}
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
