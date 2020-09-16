@@ -20,7 +20,9 @@ const Reminders = () => {
         <Modal.Header closeButton>
           <Modal.Title>Add reminder</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Put the body in here</Modal.Body>
+        <Modal.Body>
+          <input type="text" placeholder="reminder text" />
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
