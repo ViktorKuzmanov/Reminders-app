@@ -3,6 +3,7 @@ const keys = require("./config/keys");
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth-routes");
+const bodyParser = require("body-parser");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
 const app = express(); // create express app
@@ -17,6 +18,9 @@ mongoose.connect(
 // add middlewares
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
+
+app.use(express.urlencoded());
+app.use(express.json());
 
 app.use(
   cookieSession({
