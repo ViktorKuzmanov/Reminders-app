@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/NavBar";
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
+import axios from "axios";
 
 const Reminders = () => {
   const [show, setShow] = useState(false);
@@ -12,7 +13,8 @@ const Reminders = () => {
 
   const handleSaveReminder = () => {
     setShow(false);
-    console.log("reminder text = " + reminderText);
+    console.log("reminder text in handleSaveReminder = " + reminderText);
+    axios.post("addReminder", { reminderText }).then((res) => console.log(""));
   };
 
   const handleShow = () => setShow(true);
