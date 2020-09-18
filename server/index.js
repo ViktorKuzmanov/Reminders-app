@@ -5,7 +5,9 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth-routes");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const User = require("./models/user-model");
 const cookieSession = require("cookie-session");
+
 const app = express(); // create express app
 
 const passportSetup = require("./config/passport-setup");
@@ -41,6 +43,8 @@ app.get("/home", (req, res) => {
 
 app.post("/addReminder", (req, res) => {
   console.log("addReminder = " + req.body.reminderText);
+  const u = new User(req.user);
+  console.log(u.toObject()._id);
 });
 
 // start express server on port 5000
