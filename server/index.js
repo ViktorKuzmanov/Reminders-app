@@ -41,11 +41,23 @@ app.get("/home", (req, res) => {
   res.send("this is home");
 });
 
+
 app.post("/addReminder", (req, res) => {
-  console.log("addReminder = " + req.body.reminderText);
-  const u = new User(req.user);
-  console.log(u.toObject()._id);
+  const newReminder = req.body.reminderText;
+  const currentUser = new User(req.user);
+  // Covert to object so we can access its properties
+  const googleId = currentUser.toObject().googleId;
+  const prevReminders = currentUser.toObject().reminders;
+  User.findOneAndUpdate(
+    { googleId: googleId },
+    { reminders: [...prevReminders, newReminder] },
+    () => {
+      console.log("new reminder is added");
+    }
+  );
+  // User.findOne({ googleId: profile.id })
 });
+
 
 // start express server on port 5000
 app.listen(5000, () => {
