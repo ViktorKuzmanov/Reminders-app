@@ -41,7 +41,6 @@ app.get("/home", (req, res) => {
   res.send("this is home");
 });
 
-
 app.post("/addReminder", (req, res) => {
   const newReminder = req.body.reminderText;
   const currentUser = new User(req.user);
@@ -55,9 +54,12 @@ app.post("/addReminder", (req, res) => {
       console.log("new reminder is added");
     }
   );
-  // User.findOne({ googleId: profile.id })
 });
 
+app.get("/allReminders", (req, res) => {
+  const currentUser = new User(req.user).toObject();
+  currentUser.reminders.forEach((e) => console.log(e));
+});
 
 // start express server on port 5000
 app.listen(5000, () => {
