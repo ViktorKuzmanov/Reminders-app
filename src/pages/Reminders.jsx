@@ -1,23 +1,32 @@
 import React from "react";
 import Navbar from "../components/NavBar";
 import { Button, Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Reminders = () => {
   const [show, setShow] = useState(false);
+  const [reminders, setReminders] = useState([]);
 
   const handleClose = () => {
     setShow(false);
   };
 
+  const handleShow = () => setShow(true);
+
+  // TODO: when i add the new reminder the state(reminders) doesn;t get update with the new remidners
   const handleSaveReminder = () => {
     setShow(false);
     console.log("reminder text in handleSaveReminder = " + reminderText);
     axios.post("addReminder", { reminderText }).then((res) => console.log(""));
   };
 
-  const handleShow = () => setShow(true);
+  useEffect(() => {
+    console.log("useEffect is called in Reminders.jsx");
+    axios.get("allReminders").then((res) => {
+      setReminders(res.data.reminders);
+    });
+  }, []);
 
   const [reminderText, setReminderText] = useState("");
 
