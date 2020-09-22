@@ -59,6 +59,7 @@ app.post("/addReminder", (req, res) => {
 app.get("/allReminders", (req, res) => {
   const currentUser = new User(req.user).toObject();
   currentUser.reminders.forEach((e) => console.log(e));
+  res.json({ reminders: currentUser.reminders });
 });
 
 // start express server on port 5000
