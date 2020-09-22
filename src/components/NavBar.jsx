@@ -21,10 +21,9 @@ const NavBar = (props) => {
     setShowModal(false);
   };
 
-  // TODO: prati logout get request do server / posle primit go res tuka / update context / redirect to home
   const handleLogout = () => {
     axios.get("/auth/logout").then((res) => {
-      console.log("isLoggedIn u navbar" + res.data.isLoggedIn);
+      setIsLoggedIn(res.data.isLoggedIn);
     });
   };
 
