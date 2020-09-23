@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import { Dropdown, DropdownButton, Modal } from "react-bootstrap";
 import { Tab, Tabs } from "react-bootstrap";
 import { UserContext } from "../context/UserContext";
@@ -9,6 +9,7 @@ import { UserContext } from "../context/UserContext";
 const NavBar = (props) => {
   const [activetab, setActivetab] = useState("");
   const [showModal, setShowModal] = useState(false);
+
   const [isLoggedIn, setIsLoggedIn] = useContext(UserContext);
 
   const handleClick = (event) => {
@@ -24,11 +25,15 @@ const NavBar = (props) => {
   const handleLogout = () => {
     axios.get("/auth/logout").then((res) => {
       setIsLoggedIn(res.data.isLoggedIn);
+      setRediretToHome(true);
     });
   };
 
+  const [rediretToHome, setRediretToHome] = useState(false);
+
   return (
     <div>
+      {rediretToHome && <Redirect to="/" />}
       <Navbar bg="light" variant="light" expand="md">
         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
         <Nav className="mr-auto">
