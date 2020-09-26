@@ -15,10 +15,12 @@ const Reminders = () => {
   const handleShow = () => setShow(true);
 
   // TODO: when i add the new reminder the state(reminders) doesn;t get update with the new remidners
+  // TODO: ne se update UI - user-ot ne moze da vide nov reminder
   const handleSaveReminder = () => {
+    axios
+      .post("addReminder", { reminderText })
+      .then((res) => console.log("REMINDERS RES = " + res.data.reminders));
     setShow(false);
-    console.log("reminder text in handleSaveReminder = " + reminderText);
-    axios.post("addReminder", { reminderText }).then((res) => console.log(""));
   };
 
   useEffect(() => {
@@ -42,6 +44,9 @@ const Reminders = () => {
       <Button variant="primary" onClick={handleShow}>
         Add reminder
       </Button>
+      {reminders.map((reminder) => {
+        return <p>{reminder}</p>;
+      })}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add reminder</Modal.Title>

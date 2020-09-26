@@ -54,6 +54,7 @@ app.post("/addReminder", (req, res) => {
       console.log("new reminder is added");
     }
   );
+  res.redirect("/allReminders");
 });
 
 app.get("/allReminders", (req, res) => {
