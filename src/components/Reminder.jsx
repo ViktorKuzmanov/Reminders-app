@@ -1,9 +1,9 @@
 import React from "react";
 
-const Reminder = () => {
+const Reminder = (props) => {
   return (
-    <div style={{ backgroundColor: "#fca652", "height": "50px", "width": "100px" }}>
-      This is remidner
+    <div style={{ backgroundColor: "#fca652", height: "50px", width: "100px" }}>
+      {props.name}
     </div>
   );
 };
