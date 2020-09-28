@@ -1,10 +1,17 @@
 import React from "react";
+import { Col } from "react-bootstrap";
 
 const Reminder = (props) => {
+  const style = {
+    backgroundColor: "#fca652",
+    border: "1px solid",
+    height: "50px",
+    width: "100px",
+  };
   return (
-    <div style={{ backgroundColor: "#fca652", height: "50px", width: "100px" }}>
+    <Col md={3} style={style}>
       {props.name}
-    </div>
+    </Col>
   );
 };
 
