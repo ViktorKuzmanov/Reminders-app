@@ -3,6 +3,7 @@ import Navbar from "../components/NavBar";
 import { Button, Modal } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Reminder from "../components/Reminder";
 
 const Reminders = () => {
   const [show, setShow] = useState(false);
@@ -44,8 +45,8 @@ const Reminders = () => {
       <Button variant="primary" onClick={handleShow}>
         Add reminder
       </Button>
-      {reminders.map((reminder) => {
-        return <p>{reminder}</p>;
+      {reminders.map((reminderText) => {
+        return <Reminder name={reminderText} />;
       })}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
