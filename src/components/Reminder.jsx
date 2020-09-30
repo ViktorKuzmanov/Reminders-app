@@ -38,6 +38,11 @@ const Reminder = (props) => {
     setShowEditButton(false);
   };
 
+  const handleDeleteReminder = (e) => {
+    handleClose();
+    console.log("delete reminder");
+  };
+
   return (
     <Col
       onMouseEnter={(e) => setShowEditButton(true)}
@@ -55,7 +60,6 @@ const Reminder = (props) => {
       <Dialog
         open={open}
         onClose={handleClose}
-        // PaperComponent={PaperComponent}
         aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
@@ -70,7 +74,7 @@ const Reminder = (props) => {
           <Button autoFocus onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleDeleteReminder} color="primary">
             Delete
           </Button>
         </DialogActions>
