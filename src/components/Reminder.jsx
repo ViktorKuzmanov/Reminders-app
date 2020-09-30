@@ -33,10 +33,14 @@ const Reminder = (props) => {
     setOpen(false);
   };
 
+  const handleOnMouseLeave = (e) => {
+    setShowEditButton(false)
+  }
+
   return (
     <Col
       onMouseEnter={(e) => setShowEditButton(true)}
-      onMouseLeave={(e) => setShowEditButton(false)}
+      onMouseLeave={handleOnMouseLeave}
       md={3}
       style={style}
     >
