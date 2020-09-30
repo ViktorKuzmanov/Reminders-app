@@ -26,6 +26,7 @@ const Reminder = (props) => {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
+    handleOnMouseLeave();
     setOpen(true);
   };
 
@@ -34,8 +35,8 @@ const Reminder = (props) => {
   };
 
   const handleOnMouseLeave = (e) => {
-    setShowEditButton(false)
-  }
+    setShowEditButton(false);
+  };
 
   return (
     <Col
