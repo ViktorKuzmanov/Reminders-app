@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Col } from "react-bootstrap";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
 const Reminder = (props) => {
   const [showEditButton, setShowEditButton] = useState(false);
@@ -23,7 +24,11 @@ const Reminder = (props) => {
       style={style}
     >
       {props.name}
-      <button style={styleButton}>Edit</button>
+
+      <DropdownButton style={styleButton} title="Edit">
+        <Dropdown.Item>Delete</Dropdown.Item>
+        <Dropdown.Item>Another action</Dropdown.Item>
+      </DropdownButton>
     </Col>
   );
 };
