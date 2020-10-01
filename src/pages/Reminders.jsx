@@ -48,7 +48,9 @@ const Reminders = () => {
       {/* // ! Display all reminders */}
       <Row>
         {reminders.map((reminderText) => {
-          return <Reminder name={reminderText.text} />;
+          return (
+            <Reminder uniqueId={reminderText._id} name={reminderText.text} />
+          );
         })}
       </Row>
       <Modal show={show} onHide={handleClose}>
