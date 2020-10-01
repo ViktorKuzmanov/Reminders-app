@@ -21,13 +21,11 @@ const Reminders = () => {
   const handleSaveReminder = () => {
     axios.post("addReminder", { reminderText }).then((res) => {
       setReminders(res.data.reminders);
-      console.log("res.data.reminders = " + res.data.reminders);
     });
     setShow(false);
   };
 
   useEffect(() => {
-    console.log("useEffect is called in Reminders.jsx");
     axios.get("allReminders").then((res) => {
       setReminders(res.data.reminders);
     });
