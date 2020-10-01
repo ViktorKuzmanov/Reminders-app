@@ -49,7 +49,7 @@ app.post("/addReminder", (req, res) => {
   const prevReminders = currentUser.toObject().reminders;
   User.findOneAndUpdate(
     { googleId: googleId },
-    { reminders: [...prevReminders, newReminder] },
+    { reminders: [...prevReminders, { text: newReminder }] },
     () => {
       console.log("new reminder is added");
     }

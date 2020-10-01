@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   email: String,
   googleId: String,
-  reminders: [String],
+  reminders: [{ text: String }],
 });
 
 const User = mongoose.model("User", userSchema);

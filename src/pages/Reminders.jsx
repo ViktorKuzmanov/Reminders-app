@@ -50,7 +50,7 @@ const Reminders = () => {
       {/* // ! Display all reminders */}
       <Row>
         {reminders.map((reminderText) => {
-          return <Reminder name={reminderText} />;
+          return <Reminder name={reminderText.text} />;
         })}
       </Row>
       <Modal show={show} onHide={handleClose}>
