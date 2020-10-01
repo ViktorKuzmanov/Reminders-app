@@ -64,6 +64,12 @@ app.get("/allReminders", (req, res) => {
   res.json({ reminders: currentUser.reminders });
 });
 
+app.post("/deleteReminder", (req, res) => {
+  console.log(
+    "/deleteReminder idOfReminderToDelete = " + req.body.idOfReminderToDelete
+  );
+});
+
 // start express server on port 5000
 app.listen(5000, () => {
   console.log("server started on port 5000");
