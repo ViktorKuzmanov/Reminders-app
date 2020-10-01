@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogActions,
 } from "@material-ui/core";
+import axios from "axios";
 
 const Reminder = (props) => {
   const [showEditButton, setShowEditButton] = useState(false);
@@ -40,7 +41,9 @@ const Reminder = (props) => {
 
   const handleDeleteReminder = (e) => {
     handleClose();
-    console.log("delete reminder");
+    console.log("handleDeleteReminder called" + props.uniqueId);
+    const idOfReminderToDelete = props.uniqueId;
+    axios.post("/deleteReminder", { idOfReminderToDelete });
   };
 
   return (
