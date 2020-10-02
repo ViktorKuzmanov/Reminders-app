@@ -83,7 +83,7 @@ app.post("/deleteReminder", (req, res) => {
     () => {
       console.log("reminders array is updated (deleted reminder)");
     }
-  );
+  ).then(() => res.json({ reminders: newReminders }));
 });
 
 // start express server on port 5000
