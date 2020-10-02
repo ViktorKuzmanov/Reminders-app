@@ -16,8 +16,6 @@ const Reminders = () => {
 
   const handleShow = () => setShow(true);
 
-  // TODO: when i add the new reminder the state(reminders) doesn;t get update with the new remidners
-  // TODO: ne se update UI - user-ot ne moze da vide nov reminder
   const handleSaveReminder = () => {
     axios.post("addReminder", { reminderText }).then((res) => {
       setReminders(res.data.reminders);

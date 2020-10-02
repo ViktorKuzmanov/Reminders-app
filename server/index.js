@@ -68,8 +68,6 @@ app.post("/deleteReminder", (req, res) => {
   console.log(
     "/deleteReminder idOfReminderToDelete = " + req.body.idOfReminderToDelete
   );
-  // TODO: update a reminder array in database (so mongoose )
-  // TODO: prati nova reminders array do front end da se update state
   const idOfReminderToDelete = req.body.idOfReminderToDelete;
   const currentUser = new User(req.user);
   const prevReminders = currentUser.toObject().reminders;
