@@ -76,6 +76,14 @@ app.post("/deleteReminder", (req, res) => {
   const newReminders = prevReminders.filter(
     (reminder) => reminder._id != idOfReminderToDelete
   );
+  const googleId = currentUser.toObject().googleId;
+  User.findOneAndUpdate(
+    { googleId: googleId },
+    { reminders: newReminders },
+    () => {
+      console.log("reminders array is updated (deleted reminder)");
+    }
+  );
 });
 
 // start express server on port 5000
