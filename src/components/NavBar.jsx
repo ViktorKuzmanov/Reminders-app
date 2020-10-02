@@ -40,12 +40,7 @@ const NavBar = (props) => {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
         </Nav>
-        {props.location.pathname === "/" && (
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-primary">Search</Button>
-          </Form>
-        )}
+
         <DropdownButton
           alignRight
           title="Account"
