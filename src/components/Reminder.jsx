@@ -43,7 +43,9 @@ const Reminder = (props) => {
     handleClose();
     console.log("handleDeleteReminder called" + props.uniqueId);
     const idOfReminderToDelete = props.uniqueId;
-    axios.post("/deleteReminder", { idOfReminderToDelete });
+    axios
+      .post("/deleteReminder", { idOfReminderToDelete })
+      .then((res) => props.updateReminders(res.data.reminders));
   };
 
   return (

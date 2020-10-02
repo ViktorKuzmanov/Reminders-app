@@ -37,6 +37,13 @@ const Reminders = () => {
     setReminderText(e.target.value);
   };
 
+  // This is function that the Reminders component calls
+  //and passes new updated reminder when a reminder gets deleted
+  const updateReminders = (reminders) => {
+    console.log("updateReminders =  " + JSON.stringify(reminders));
+    setReminders(reminders);
+  };
+
   return (
     <div>
       <Navbar />
@@ -49,7 +56,11 @@ const Reminders = () => {
       <Row>
         {reminders.map((reminderText) => {
           return (
-            <Reminder uniqueId={reminderText._id} name={reminderText.text} />
+            <Reminder
+              uniqueId={reminderText._id}
+              updateReminders={updateReminders}
+              name={reminderText.text}
+            />
           );
         })}
       </Row>
