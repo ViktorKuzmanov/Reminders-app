@@ -1,4 +1,5 @@
 # Reminders app
+
 Simple web app that helps you add reminders and save it to your account
 
 ---
@@ -7,7 +8,7 @@ Simple web app that helps you add reminders and save it to your account
 
 📖 Upon building this web app I learned about:
 
-- OAuth
+- how to implement OAuth
 
 - MongoDB and MongoDB Atlas
 
